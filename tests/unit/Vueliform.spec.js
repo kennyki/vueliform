@@ -1,6 +1,6 @@
 import _cloneDeep from 'lodash/cloneDeep'
 import { mount } from '@vue/test-utils'
-import { BFormSelect } from 'bootstrap-vue'
+import { BFormCheckbox, BFormSelect } from 'bootstrap-vue'
 import Vueliform from '../../src/components/Vueliform'
 
 const schemaData = [
@@ -121,7 +121,7 @@ it('renders placeholder for select', () => {
   expect(option.text()).toBe(placeholder)
 })
 
-it('support dynamic options for select', async () => {
+it('supports dynamic options for select', async () => {
   const optionsA = [1, 2, 3]
   const optionsB = [4, 5, 6]
   const wrapper = mount(Vueliform, {
@@ -162,4 +162,77 @@ it('support dynamic options for select', async () => {
   wrapper.setData({ updates: { alphabet: 'C' } })
   await wrapper.vm.$nextTick()
   expect(numberSelect.props('options')).toEqual([])
+})
+
+it('supports "if" with truthy check on value (on length if value is an array)', async () => {
+  const wrapper = mount(Vueliform, {
+    propsData: {
+      schema: [
+        {
+          name: 'had_breakfast',
+          label: 'Have you eaten your breakfast?',
+          type: 'checkbox'
+        },
+        {
+          name: 'breakfast_food',
+          label: 'What did you have?',
+          type: 'checkbox',
+          options: ['Bread'],
+          if: 'had_breakfast'
+        },
+        {
+          name: 'breakfast_quality',
+          label: 'Was it good?',
+          type: 'checkbox',
+          if: 'breakfast_food'
+        }
+      ]
+    }
+  })
+
+  expect(wrapper.findAllComponents(BFormCheckbox).length).toBe(1)
+
+  wrapper.setData({ updates: { had_breakfast: true } })
+  await wrapper.vm.$nextTick()
+
+  expect(wrapper.findAllComponents(BFormCheckbox).length).toBe(2)
+
+  wrapper.setData({ updates: { breakfast_food: ['Bread'] } })
+  await wrapper.vm.$nextTick()
+  expect(wrapper.findAllComponents(BFormCheckbox).length).toBe(3)
+
+  wrapper.setData({ updates: { breakfast_food: [] } })
+  await wrapper.vm.$nextTick()
+  expect(wrapper.findAllComponents(BFormCheckbox).length).toBe(2)
+})
+
+it('clears existing field value when the depending "if" condition is falsy', async () => {
+  const wrapper = mount(Vueliform, {
+    propsData: {
+      schema: [
+        {
+          name: 'had_breakfast',
+          label: 'Have you eaten your breakfast?',
+          type: 'checkbox',
+          value: true
+        },
+        {
+          name: 'breakfast_quality',
+          label: 'Was it good?',
+          type: 'checkbox',
+          if: 'had_breakfast'
+        }
+      ]
+    }
+  })
+
+  expect(wrapper.findAllComponents(BFormCheckbox).length).toBe(2)
+
+  wrapper.setData({ updates: { breakfast_quality: true } })
+  await wrapper.vm.$nextTick()
+
+  wrapper.setData({ updates: { had_breakfast: false } })
+  await wrapper.vm.$nextTick()
+
+  expect(wrapper.vm.updates.breakfast_quality).toBe(null)
 })

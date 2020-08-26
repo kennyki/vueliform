@@ -205,16 +205,21 @@ export default {
     },
     renderField (h, field) {
       const { label = '', type } = field
+      let component = null
 
       if (type === 'divider') {
-        return h(this.useComponents.divider)
-      } else if (type === 'grid') {
-        return this.renderGrid(h, field)
-      } else if (LAYOUT_TYPES.indexOf(type) !== -1) {
-        return this.renderLayout(h, field)
-      } else {
-        return this.renderFormGroup(h, field)
+        component = h(this.useComponents.divider)
+      } else if (this.checkIfPass(field)) {
+        if (type === 'grid') {
+          component = this.renderGrid(h, field)
+        } else if (LAYOUT_TYPES.indexOf(type) !== -1) {
+          component = this.renderLayout(h, field)
+        } else {
+          component = this.renderFormGroup(h, field)
+        }
       }
+
+      return component
     },
     renderGrid (h, field) {
       const layout = {
@@ -463,6 +468,23 @@ export default {
       }
 
       return messages
+    },
+    checkIfPass (field) {
+      const condition = field.if || null
+      let pass = true
+
+      if (typeof condition === 'string') {
+        const value = this.updates[condition]
+
+        pass = !!(Array.isArray(value) ? value.length : value)
+      }
+
+      if (!pass && field.name) {
+        // clear existing value if there is any
+        this.$set(this.updates, field.name, null)
+      }
+
+      return pass
     }
   }
 }

@@ -1,5 +1,67 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Conditional Rendering If 1`] = `
+<div
+  style="padding: 2rem;"
+>
+  <form
+    class=""
+    novalidate="novalidate"
+  >
+    <header>
+      <p
+        class="text-muted"
+      >
+        Using "if" on any field. Defaults to truthy check on the value (on length if the value is an array)
+      </p>
+    </header>
+    <fieldset
+      class="form-group"
+    >
+      <!---->
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <div
+          class="custom-control custom-checkbox"
+        >
+          <input
+            autocomplete="off"
+            class="custom-control-input"
+            name="had_breakfast"
+            type="checkbox"
+            value="true"
+          />
+          <label
+            class="custom-control-label"
+          >
+            Have you eaten your breakfast?
+          </label>
+        </div>
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </fieldset>
+    <footer>
+      <button
+        class="btn btn-primary"
+        type="submit"
+      >
+        Submit
+      </button>
+    </footer>
+  </form>
+</div>
+`;
+
 exports[`Storyshots Conditional Rendering Select With Dynamic Options 1`] = `
 <div
   style="padding: 2rem;"
@@ -12,7 +74,7 @@ exports[`Storyshots Conditional Rendering Select With Dynamic Options 1`] = `
       <p
         class="text-muted"
       >
-        https://bootstrap-vue.org/docs/components/form-select
+        Using "optionsMap"
       </p>
     </header>
     <fieldset
