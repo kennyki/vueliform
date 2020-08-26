@@ -1,6 +1,10 @@
 import _cloneDeep from 'lodash/cloneDeep'
 import { mount } from '@vue/test-utils'
-import { BFormCheckbox, BFormSelect } from 'bootstrap-vue'
+import {
+  BFormCheckbox,
+  BFormInput,
+  BFormSelect
+} from 'bootstrap-vue'
 import Vueliform from '../../src/components/Vueliform'
 
 const schemaData = [
@@ -235,4 +239,67 @@ it('clears existing field value when the depending "if" condition is falsy', asy
   await wrapper.vm.$nextTick()
 
   expect(wrapper.vm.updates.breakfast_quality).toBe(null)
+})
+
+it('supports "if" with grid', async () => {
+  const wrapper = mount(Vueliform, {
+    propsData: {
+      schema: [
+        {
+          name: 'had_breakfast',
+          label: 'Have you eaten your breakfast?',
+          type: 'checkbox'
+        },
+        {
+          type: 'grid',
+          children: [
+            { name: 'food', label: 'Food' },
+            { name: 'quantity', label: 'Quantity' }
+          ],
+          if: 'had_breakfast'
+        }
+      ]
+    }
+  })
+
+  expect(wrapper.findAllComponents(BFormInput).length).toBe(0)
+
+  wrapper.setData({ updates: { had_breakfast: true } })
+  await wrapper.vm.$nextTick()
+  expect(wrapper.findAllComponents(BFormInput).length).toBe(2)
+})
+
+it('clears value of all fields in a grid when the depending "if" condition is falsy', async () => {
+  const wrapper = mount(Vueliform, {
+    propsData: {
+      schema: [
+        {
+          name: 'had_breakfast',
+          label: 'Have you eaten your breakfast?',
+          type: 'checkbox',
+          value: true
+        },
+        {
+          type: 'grid',
+          children: [
+            { name: 'food', label: 'Food' },
+            { name: 'quantity', label: 'Quantity' }
+          ],
+          if: 'had_breakfast'
+        }
+      ]
+    }
+  })
+
+  wrapper.setData({ updates: { food: 'Bread', quantity: '1 slice' } })
+  await wrapper.vm.$nextTick()
+
+  expect(wrapper.vm.updates.food).toBe('Bread')
+  expect(wrapper.vm.updates.quantity).toBe('1 slice')
+
+  wrapper.setData({ updates: { had_breakfast: false } })
+  await wrapper.vm.$nextTick()
+
+  expect(wrapper.vm.updates.food).toBe(null)
+  expect(wrapper.vm.updates.quantity).toBe(null)
 })

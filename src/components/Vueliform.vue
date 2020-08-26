@@ -479,12 +479,23 @@ export default {
         pass = !!(Array.isArray(value) ? value.length : value)
       }
 
-      if (!pass && field.name) {
+      if (!pass) {
         // clear existing value if there is any
-        this.$set(this.updates, field.name, null)
+        this.resetValue(field)
       }
 
       return pass
+    },
+    resetValue (field) {
+      const { children, name } = field
+
+      if (!children) {
+        this.$set(this.updates, name, null)
+      } else {
+        children.forEach((child) => {
+          this.resetValue(child)
+        })
+      }
     }
   }
 }

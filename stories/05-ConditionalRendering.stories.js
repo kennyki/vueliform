@@ -51,7 +51,7 @@ export const If = () => ({
   template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
   props: {
     description: {
-      default: 'Using "if" on any field. Defaults to truthy check on the value (on length if the value is an array)'
+      default: 'Using "if" on any field or layout. Defaults to truthy check on the value (on length if the value is an array)'
     },
     schema: {
       default: () => object('schema', [
@@ -72,6 +72,14 @@ export const If = () => ({
           label: 'Was it good?',
           type: 'checkbox',
           if: 'breakfast_food'
+        },
+        {
+          type: 'grid',
+          children: [
+            { name: 'brand', label: 'Brand' },
+            { name: 'price', label: 'Price' }
+          ],
+          if: 'breakfast_quality'
         }
       ])
     }

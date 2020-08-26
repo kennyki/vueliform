@@ -12,7 +12,7 @@ exports[`Storyshots Conditional Rendering If 1`] = `
       <p
         class="text-muted"
       >
-        Using "if" on any field. Defaults to truthy check on the value (on length if the value is an array)
+        Using "if" on any field or layout. Defaults to truthy check on the value (on length if the value is an array)
       </p>
     </header>
     <fieldset
