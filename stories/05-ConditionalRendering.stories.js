@@ -80,6 +80,28 @@ export const If = () => ({
             { name: 'price', label: 'Price' }
           ],
           if: 'breakfast_quality'
+        },
+        {
+          type: 'container',
+          fluid: true,
+          children: [
+            {
+              type: 'formRow',
+              children: [
+                {
+                  type: 'col',
+                  sm: '6',
+                  children: { name: 'quantity', label: 'Quantity' }
+                },
+                {
+                  type: 'col',
+                  sm: '6',
+                  children: { name: 'rating', label: 'Rating', type: 'rating' }
+                }
+              ]
+            }
+          ],
+          if: 'breakfast_quality'
         }
       ])
     }

@@ -241,7 +241,7 @@ it('clears existing field value when the depending "if" condition is falsy', asy
   expect(wrapper.vm.updates.breakfast_quality).toBe(null)
 })
 
-it('supports "if" with grid', async () => {
+it('supports "if" with layout', async () => {
   const wrapper = mount(Vueliform, {
     propsData: {
       schema: [
@@ -257,6 +257,28 @@ it('supports "if" with grid', async () => {
             { name: 'quantity', label: 'Quantity' }
           ],
           if: 'had_breakfast'
+        },
+        {
+          type: 'container',
+          fluid: true,
+          children: [
+            {
+              type: 'formRow',
+              children: [
+                {
+                  type: 'col',
+                  sm: '6',
+                  children: { name: 'brand', label: 'Brand' }
+                },
+                {
+                  type: 'col',
+                  sm: '6',
+                  children: { name: 'rating', label: 'Rating' }
+                }
+              ]
+            }
+          ],
+          if: 'had_breakfast'
         }
       ]
     }
@@ -266,10 +288,10 @@ it('supports "if" with grid', async () => {
 
   wrapper.setData({ updates: { had_breakfast: true } })
   await wrapper.vm.$nextTick()
-  expect(wrapper.findAllComponents(BFormInput).length).toBe(2)
+  expect(wrapper.findAllComponents(BFormInput).length).toBe(4)
 })
 
-it('clears value of all fields in a grid when the depending "if" condition is falsy', async () => {
+it('clears value of all fields in a layout when the depending "if" condition is falsy', async () => {
   const wrapper = mount(Vueliform, {
     propsData: {
       schema: [
@@ -286,20 +308,46 @@ it('clears value of all fields in a grid when the depending "if" condition is fa
             { name: 'quantity', label: 'Quantity' }
           ],
           if: 'had_breakfast'
+        },
+        {
+          type: 'container',
+          fluid: true,
+          children: [
+            {
+              type: 'formRow',
+              children: [
+                {
+                  type: 'col',
+                  sm: '6',
+                  children: { name: 'brand', label: 'Brand' }
+                },
+                {
+                  type: 'col',
+                  sm: '6',
+                  children: { name: 'rating', label: 'Rating' }
+                }
+              ]
+            }
+          ],
+          if: 'had_breakfast'
         }
       ]
     }
   })
 
-  wrapper.setData({ updates: { food: 'Bread', quantity: '1 slice' } })
+  wrapper.setData({ updates: { food: 'Bread', quantity: '1 slice', brand: 'Gardenia', rating: '5' } })
   await wrapper.vm.$nextTick()
 
   expect(wrapper.vm.updates.food).toBe('Bread')
   expect(wrapper.vm.updates.quantity).toBe('1 slice')
+  expect(wrapper.vm.updates.brand).toBe('Gardenia')
+  expect(wrapper.vm.updates.rating).toBe('5')
 
   wrapper.setData({ updates: { had_breakfast: false } })
   await wrapper.vm.$nextTick()
 
   expect(wrapper.vm.updates.food).toBe(null)
   expect(wrapper.vm.updates.quantity).toBe(null)
+  expect(wrapper.vm.updates.brand).toBe(null)
+  expect(wrapper.vm.updates.rating).toBe(null)
 })

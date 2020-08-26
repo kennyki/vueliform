@@ -487,11 +487,13 @@ export default {
       return pass
     },
     resetValue (field) {
-      const { children, name } = field
+      let { children, name } = field
 
       if (!children) {
         this.$set(this.updates, name, null)
       } else {
+        children = Array.isArray(children) ? children : [children]
+
         children.forEach((child) => {
           this.resetValue(child)
         })
