@@ -1,28 +1,8 @@
-import {
-  BButton,
-  BContainer,
-  BCol,
-  BForm,
-  BFormCheckbox,
-  BFormCheckboxGroup,
-  BFormDatepicker,
-  BFormGroup,
-  BFormInput,
-  BFormInvalidFeedback,
-  BFormRadioGroup,
-  BFormRating,
-  BFormRow,
-  BFormSelect,
-  BFormSpinbutton,
-  BFormTags,
-  BFormTextarea,
-  BFormTimepicker,
-  BRow
-} from 'bootstrap-vue'
 import { validationMixin } from 'vuelidate'
 import {
   required
 } from 'vuelidate/lib/validators'
+import { formComponents } from '..'
 
 const LAYOUT_TYPES = ['container', 'row', 'formRow', 'col']
 
@@ -70,27 +50,7 @@ export default {
   data () {
     return {
       useComponents: {
-        form: BForm,
-        title: 'h1',
-        description: 'p',
-        divider: 'hr',
-        button: BButton,
-        formGroup: BFormGroup,
-        input: BFormInput,
-        textarea: BFormTextarea,
-        radioGroup: BFormRadioGroup,
-        checkbox: BFormCheckbox,
-        checkboxGroup: BFormCheckboxGroup,
-        select: BFormSelect,
-        tags: BFormTags,
-        rating: BFormRating,
-        spinbutton: BFormSpinbutton,
-        datepicker: BFormDatepicker,
-        timepicker: BFormTimepicker,
-        container: BContainer,
-        row: BRow,
-        formRow: BFormRow,
-        col: BCol,
+        ...formComponents,
         ...this.components
       },
       feedbacks: {
@@ -244,7 +204,7 @@ export default {
       const { children, type, ...props } = field
       const childFields = Array.isArray(children) ? children : [children]
 
-      return h(this.useComponents[type], {
+      return h(formComponents[type], {
         // this is to align with the form consistently
         class: type === 'container' ? 'px-0' : '',
         props
@@ -293,6 +253,8 @@ export default {
         component = this.renderFormDatepicker(h, field)
       } else if (type === 'timepicker') {
         component = this.renderFormTimepicker(h, field)
+      } else if (this.useComponents[type]) {
+        component = this.renderCustomComponent(h, field)
       } else {
         component = this.renderFormInput(h, field)
       }
@@ -300,7 +262,7 @@ export default {
       const state = this.$v.updates[name] && this.$v.updates[name].$error ? false: null
       const children = [
         component,
-        h(BFormInvalidFeedback, {
+        h(this.useComponents.invalidFeedback, {
           props: { state }
         }, this.getValidationMessages(field).join('<br>'))
       ]
@@ -430,6 +392,13 @@ export default {
     },
     renderFormTimepicker (h, field) {
       return h(this.useComponents.timepicker, this.getComponentData({
+        field,
+        vModelProp: 'value',
+        vModelEvent: 'input'
+      }))
+    },
+    renderCustomComponent(h, field) {
+      return h(this.useComponents[field.type], this.getComponentData({
         field,
         vModelProp: 'value',
         vModelEvent: 'input'
