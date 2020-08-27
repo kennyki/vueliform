@@ -1,4 +1,3 @@
-<script>
 import {
   BButton,
   BContainer,
@@ -502,4 +501,3 @@ export default {
     }
   }
 }
-</script>
