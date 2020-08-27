@@ -61,27 +61,28 @@ export const If = () => ({
           type: 'checkbox'
         },
         {
+          if: 'had_breakfast',
+          name: 'breakfast_quality',
+          label: 'Was it good?',
+          type: 'checkbox'
+        },
+        {
+          if: 'breakfast_quality',
           name: 'breakfast_food',
           label: 'What did you have?',
           type: 'checkbox',
-          options: ['Bread', 'Noodle', 'Oat', 'Milkshake'],
-          if: 'had_breakfast'
+          options: ['Bread', 'Noodle', 'Oat', 'Milkshake']
         },
         {
-          name: 'breakfast_quality',
-          label: 'Was it good?',
-          type: 'checkbox',
-          if: 'breakfast_food'
-        },
-        {
+          if: 'breakfast_food',
           type: 'grid',
           children: [
             { name: 'brand', label: 'Brand' },
             { name: 'price', label: 'Price' }
-          ],
-          if: 'breakfast_quality'
+          ]
         },
         {
+          if: 'breakfast_food',
           type: 'container',
           fluid: true,
           children: [
@@ -100,11 +101,67 @@ export const If = () => ({
                 }
               ]
             }
-          ],
-          if: 'breakfast_quality'
+          ]
         }
       ])
     }
   },
   methods: actionsData
 })
+
+// export const IfWithOperators = () => ({
+//   components: { Vueliform },
+//   template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
+//   props: {
+//     description: {
+//       default: 'Using "if" with operators'
+//     },
+//     schema: {
+//       default: () => object('schema', [
+//         {
+//           name: 'had_breakfast',
+//           label: 'Have you eaten your breakfast?',
+//           type: 'checkbox'
+//         },
+//         {
+//           name: 'breakfast_food',
+//           label: 'What did you have for breakfast?',
+//           type: 'radio',
+//           options: ['Bread', 'Noodle', 'Oat', 'Milkshake'],
+//           if: 'had_breakfast'
+//         },
+//         {
+//           name: 'slices',
+//           label: 'How many slices?',
+//           type: 'number',
+//           if: {
+//             had_breakfast: true,
+//             breakfast_food: { $eq: 'Bread' }
+//           }
+//         },
+//         {
+//           name: 'bowls',
+//           label: 'How many bowls?',
+//           type: 'number',
+//           if: {
+//             had_breakfast: true,
+//             breakfast_food: { $in: ['Noodle', 'Oat'] }
+//           }
+//         },
+//         {
+//           name: 'temperature',
+//           label: 'Served hot?',
+//           type: 'checkbox',
+//           if: {
+//             had_breakfast: true,
+//             $or: {
+//               breakfast_food: { $eq: 'Noodle' },
+//               breakfast_food: { $eq: 'Oat' }
+//             }
+//           }
+//         }
+//       ])
+//     }
+//   },
+//   methods: actionsData
+// })

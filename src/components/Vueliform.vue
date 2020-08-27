@@ -478,6 +478,7 @@ export default {
 
         pass = !!(Array.isArray(value) ? value.length : value)
       }
+      // TODO: support "if" with operators
 
       if (!pass) {
         // clear existing value if there is any
