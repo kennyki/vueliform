@@ -10,43 +10,7 @@ export default {
   decorators: [withPadding, withKnobs]
 }
 
-export const OverrideComponents = () => ({
-  components: { Vueliform },
-  template: '<Vueliform :title="title" :description="description" :components="components" :schema="schema" @submit="onSubmit" @change="onChange"/>',
-  props: {
-    title: {
-      default: 'This title is overridden with the "components" prop'
-    },
-    description: {
-      default: 'Note: the prop is not watched so it\'s not reactive'
-    },
-    schema: {
-      default: () => ([{ name: 'name', label: 'Name' }])
-    },
-    components: {
-      default: () => object('components', { title: 'h4' })
-    }
-  },
-  methods: actionsData
-})
-
-export const OverrideComponentsGlobally = () => ({
-  template: `<pre>
-import VueliformPlugin from 'vueliform'
-
-Vue.use(VueliformPlugin, {
-  formComponents: {
-    title: {
-      render (h) {
-        return h('h1', { style: 'color: red' }, this.$slots.default)
-      }
-    }
-  }
-})
-  </pre>`
-})
-
-export const AddCustomComponent = () => ({
+export const CustomComponent = () => ({
   components: { Vueliform },
   template: `<div>
     <Vueliform :description="description" :components="components" :schema="schema" @submit="onSubmit" @change="onChange"/>
@@ -100,4 +64,49 @@ components: {
     }
   },
   methods: actionsData
+})
+
+export const OverrideComponent = () => ({
+  components: { Vueliform },
+  template: `<div>
+    <Vueliform :title="title" :description="description" :components="components" :schema="schema" @submit="onSubmit" @change="onChange"/>
+    <hr>
+    <pre>
+// pass in an object to the "components" prop
+components: {
+  title: 'h4'
+}
+    </pre>
+  </div>`,
+  props: {
+    title: {
+      default: 'This title is overridden with the "components" prop from <h1> to a <h4>'
+    },
+    description: {
+      default: 'Note: the prop is not watched so it\'s not reactive'
+    },
+    schema: {
+      default: () => ([{ name: 'name', label: 'Name' }])
+    },
+    components: {
+      default: () => object('components', { title: 'h4' })
+    }
+  },
+  methods: actionsData
+})
+
+export const OverrideComponentGlobally = () => ({
+  template: `<pre>
+import VueliformPlugin from 'vueliform'
+
+Vue.use(VueliformPlugin, {
+  formComponents: {
+    title: {
+      render (h) {
+        return h('h1', { style: 'color: red' }, this.$slots.default)
+      }
+    }
+  }
+})
+  </pre>`
 })
