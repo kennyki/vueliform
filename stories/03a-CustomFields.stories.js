@@ -32,15 +32,17 @@ export const OverrideComponents = () => ({
 
 export const OverrideComponentsGlobally = () => ({
   template: `<pre>
-  Vue.use(VueliformPlugin, {
-    formComponents: {
-      title: {
-        render (h) {
-          return h('h1', { style: 'color: red' }, this.$slots.default)
-        }
+import VueliformPlugin from 'vueliform'
+
+Vue.use(VueliformPlugin, {
+  formComponents: {
+    title: {
+      render (h) {
+        return h('h1', { style: 'color: red' }, this.$slots.default)
       }
     }
-  })
+  }
+})
   </pre>`
 })
 
@@ -50,6 +52,7 @@ export const AddCustomComponent = () => ({
     <Vueliform :description="description" :components="components" :schema="schema" @submit="onSubmit" @change="onChange"/>
     <hr>
     <pre>
+// pass in an object to the "components" prop
 components: {
   customInput: {
     props: ['value', 'color'],

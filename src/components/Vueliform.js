@@ -2,7 +2,7 @@ import { validationMixin } from 'vuelidate'
 import {
   required
 } from 'vuelidate/lib/validators'
-import { formComponents } from '..'
+import { getFormComponents } from '../config'
 
 const LAYOUT_TYPES = ['container', 'row', 'formRow', 'col']
 
@@ -50,7 +50,7 @@ export default {
   data () {
     return {
       useComponents: {
-        ...formComponents,
+        ...getFormComponents(),
         ...this.components
       },
       feedbacks: {
@@ -204,7 +204,7 @@ export default {
       const { children, type, ...props } = field
       const childFields = Array.isArray(children) ? children : [children]
 
-      return h(formComponents[type], {
+      return h(this.useComponents[type], {
         // this is to align with the form consistently
         class: type === 'container' ? 'px-0' : '',
         props
