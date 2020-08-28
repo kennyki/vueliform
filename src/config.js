@@ -19,6 +19,9 @@ import {
   BFormTimepicker,
   BRow
 } from 'bootstrap-vue'
+import {
+  required
+} from 'vuelidate/lib/validators'
 
 const formComponents = {
   form: BForm,
@@ -45,10 +48,26 @@ const formComponents = {
   col: BCol
 }
 
+const formValidators = {
+  required: {
+    fn: required,
+    withParams: false,
+    feedback: 'This field is required'
+  }
+}
+
 export const setFormComponents = (components) => {
   Object.assign(formComponents, components)
 }
 
 export const getFormComponents = () => {
   return formComponents
+}
+
+export const setFormValidators = (validators) => {
+  Object.assign(formValidators, validators)
+}
+
+export const getFormValidators = () => {
+  return formValidators
 }

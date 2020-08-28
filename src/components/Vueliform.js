@@ -1,8 +1,8 @@
 import { validationMixin } from 'vuelidate'
 import {
-  required
-} from 'vuelidate/lib/validators'
-import { getFormComponents } from '../config'
+  getFormComponents,
+  getFormValidators
+} from '../config'
 
 const LAYOUT_TYPES = ['container', 'row', 'formRow', 'col']
 
@@ -45,6 +45,10 @@ export default {
     },
     title: {
       type: String
+    },
+    validators: {
+      type: Object,
+      default: () => ({})
     }
   },
   data () {
@@ -53,8 +57,9 @@ export default {
         ...getFormComponents(),
         ...this.components
       },
-      feedbacks: {
-        required: 'This field is required'
+      useValidators: {
+        ...getFormValidators(),
+        ...this.validators
       },
       updates: {}
     }
@@ -68,24 +73,41 @@ export default {
     }
   },
   validations () {
-    const validations = {
+    const validationsData = {
       updates: {}
     }
 
     this.schema.forEach((field) => {
-      const { name, type } = field
-      const v = validations.updates[name] || {}
+      const { name, validations } = field
 
-      if (field.required) {
-        v.required = required
+      if (!validations) {
+        return
       }
 
+      const v = validationsData.updates[name] || {}
+
+      Object.keys(validations).forEach((validationName) => {
+        const validator = this.useValidators[validationName]
+
+        if (!validator) {
+          // TODO: should we throw an error?
+          return
+        }
+
+        const params = validations[validationName]
+
+        // user must pass in correct params (an array for multiple arguments) to the schema
+        v[validationName] = validator.withParams
+          ? validator.fn(...(Array.isArray(params) ? params : [params]))
+          : validator.fn
+      })
+
       if (Object.keys(v).length !== 0) {
-        validations.updates[name] = v
+        validationsData.updates[name] = v
       }
     })
 
-    return validations
+    return validationsData
   },
   render (h) {
     return h(this.useComponents.form, {
@@ -276,10 +298,10 @@ export default {
       }, children)
     },
     renderLabel (h, field) {
-      const { label, required } = field
+      const { label, validations = {} } = field
       const children = [label]
 
-      if (required) {
+      if (validations.required) {
         children.push(h('span', { class: 'ml-1 text-danger' }, '*'))
       }
 
@@ -407,7 +429,14 @@ export default {
     getComponentData ({ field, vModelProp, vModelEvent }) {
       // omit props specific to b-form-group/vueliform
       // and pass everything else (to support all props per component)
-      const { label, description, type, ...props } = field
+      const {
+        label,
+        description,
+        type,
+        validations,
+        validationFeedbacks,
+        ...props
+      } = field
       const { name } = props
 
       props[vModelProp] = this.updates[name]
@@ -423,7 +452,7 @@ export default {
       }
     },
     getValidationMessages (field) {
-      const { name, feedbacks = {} } = field
+      const { name, validations = {}, validationFeedbacks = {} } = field
       const messages = []
       const $v = this.$v.updates[name]
 
@@ -431,9 +460,25 @@ export default {
         return messages
       }
 
-      if ($v.required === false) {
-        messages.push(feedbacks.required || this.feedbacks.required)
-      }
+      Object.keys(validations).forEach((validationName) => {
+        if ($v[validationName] === false) {
+          const validator = this.useValidators[validationName]
+          let message = validationFeedbacks[validationName] || validator.feedback
+
+          if (validator.withParams) {
+            let params = validations[validationName]
+            params = Array.isArray(params) ? params : [params]
+
+            // TODO: should we use a library for this?
+            // TODO: support custom sigil (instead of just $)
+            params.forEach((param, i) => {
+              message = message.replace(new RegExp('\\\$\\\{' + i + '\\\}', 'g'), param)
+            })
+          }
+
+          messages.push(message)
+        }
+      })
 
       return messages
     },

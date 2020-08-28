@@ -19,28 +19,11 @@ export const Required = () => ({
     },
     schema: {
       default: () => object('schema', [
-        { name: 'name', label: 'Name', required: true }
-      ])
-    }
-  },
-  methods: actionsData
-})
-
-export const CustomFeedbacks = () => ({
-  components: { Vueliform },
-  template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
-  props: {
-    description: {
-      default: 'Click submit button to trigger form validations'
-    },
-    schema: {
-      default: () => object('schema', [
         {
           name: 'name',
           label: 'Name',
-          required: true,
-          feedbacks: {
-            required: 'Please enter your name'
+          validations: {
+            required: true
           }
         }
       ])
