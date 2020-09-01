@@ -172,6 +172,325 @@ exports[`Storyshots Conditional Rendering Select With Dynamic Options 1`] = `
 </div>
 `;
 
+exports[`Storyshots Custom Fields Custom Component 1`] = `
+<div
+  style="padding: 2rem;"
+>
+  <div>
+    <form
+      class=""
+      novalidate="novalidate"
+    >
+      <header>
+        <p
+          class="text-muted"
+        >
+          Make sure the component supports the default v-model behaviour (has prop "value" and emits "input" event)
+        </p>
+      </header>
+      <fieldset
+        class="form-group"
+      >
+        <legend
+          class="bv-no-focus-ring col-form-label pt-0"
+          tabindex="-1"
+        >
+          Name
+        </legend>
+        <div
+          class="bv-no-focus-ring"
+          role="group"
+          tabindex="-1"
+        >
+          <input
+            style="color: red;"
+            value="John Doe"
+          />
+          <div
+            class="invalid-feedback"
+          >
+            
+          </div>
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </fieldset>
+      <footer>
+        <button
+          class="btn btn-primary"
+          type="submit"
+        >
+          Submit
+        </button>
+      </footer>
+    </form>
+     
+    <hr />
+     
+    <pre>
+      // pass in an object to the "components" prop
+components: {
+  customInput: {
+    props: ['value', 'color'],
+    render (h) {
+      return h('input', {
+        style: { color: this.color || '#333' },
+        attrs: { value: this.value },
+        on: {
+          input: (e) =&gt; {
+            this.$emit('input', e.target.value)
+          }
+        }
+      })
+    }
+  }
+}
+    
+    </pre>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Custom Fields Override Component 1`] = `
+<div
+  style="padding: 2rem;"
+>
+  <div>
+    <form
+      class=""
+      novalidate="novalidate"
+    >
+      <header>
+        <h4>
+          This title is overridden with the "components" prop from &lt;h1&gt; to a &lt;h4&gt;
+        </h4>
+        <p
+          class="text-muted"
+        >
+          Note: the prop is not watched so it's not reactive
+        </p>
+      </header>
+      <fieldset
+        class="form-group"
+      >
+        <legend
+          class="bv-no-focus-ring col-form-label pt-0"
+          tabindex="-1"
+        >
+          Name
+        </legend>
+        <div
+          class="bv-no-focus-ring"
+          role="group"
+          tabindex="-1"
+        >
+          <input
+            class="form-control"
+            name="name"
+            type="text"
+          />
+          <div
+            class="invalid-feedback"
+          >
+            
+          </div>
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </fieldset>
+      <footer>
+        <button
+          class="btn btn-primary"
+          type="submit"
+        >
+          Submit
+        </button>
+      </footer>
+    </form>
+     
+    <hr />
+     
+    <pre>
+      // pass in an object to the "components" prop
+components: {
+  title: 'h4'
+}
+    
+    </pre>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Custom Fields Override Component Globally 1`] = `
+<div
+  style="padding: 2rem;"
+>
+  <pre>
+    import VueliformPlugin from 'vueliform'
+
+Vue.use(VueliformPlugin, {
+  formComponents: {
+    title: {
+      render (h) {
+        return h('h1', { style: 'color: red' }, this.$slots.default)
+      }
+    }
+  }
+})
+  
+  </pre>
+</div>
+`;
+
+exports[`Storyshots Custom Validations Custom Feedback 1`] = `
+<div
+  style="padding: 2rem;"
+>
+  <form
+    class=""
+    novalidate="novalidate"
+  >
+    <header>
+      <p
+        class="text-muted"
+      >
+        Click submit button to trigger form validations
+      </p>
+    </header>
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="bv-no-focus-ring col-form-label pt-0"
+        tabindex="-1"
+      >
+        Name
+        <span
+          class="ml-1 text-danger"
+        >
+          *
+        </span>
+      </legend>
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <input
+          class="form-control"
+          name="name"
+          type="text"
+        />
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </fieldset>
+    <footer>
+      <button
+        class="btn btn-primary"
+        type="submit"
+      >
+        Submit
+      </button>
+    </footer>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Custom Validations Custom Validator 1`] = `
+<div
+  style="padding: 2rem;"
+>
+  <div>
+    <form
+      class=""
+      novalidate="novalidate"
+    >
+      <header>
+        <p
+          class="text-muted"
+        >
+          Compose a Vuelidate-compatible validator thru the "validators" prop
+        </p>
+      </header>
+      <fieldset
+        class="form-group"
+      >
+        <legend
+          class="bv-no-focus-ring col-form-label pt-0"
+          tabindex="-1"
+        >
+          Name
+          <span
+            class="ml-1 text-danger"
+          >
+            *
+          </span>
+        </legend>
+        <div
+          class="bv-no-focus-ring"
+          role="group"
+          tabindex="-1"
+        >
+          <input
+            class="form-control"
+            name="name"
+            type="text"
+          />
+          <div
+            class="invalid-feedback"
+          >
+            
+          </div>
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </fieldset>
+      <footer>
+        <button
+          class="btn btn-primary"
+          type="submit"
+        >
+          Submit
+        </button>
+      </footer>
+    </form>
+     
+    <hr />
+     
+    <pre>
+      import { helpers } from 'vuelidate/lib/validators'
+
+// Vuelidate custom validator
+const equalLength = (equal) =&gt; {
+  return helpers.withParams({ type: 'equalLength', equal }, (value) =&gt; {
+    return !helpers.req(value) || helpers.len(value) === equal
+  })
+}
+
+// pass in an object to the "validators" prop
+validators: {
+  equalLength: {
+    fn: equalLength,
+    withParams: true,
+    feedback: 'This field must have \${0} characters'
+  }
+}
+    
+    </pre>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Fields Checkbox 1`] = `
 <div
   style="padding: 2rem;"
@@ -2647,69 +2966,6 @@ exports[`Storyshots Layout Manual 1`] = `
 </div>
 `;
 
-exports[`Storyshots Validations Custom Feedbacks 1`] = `
-<div
-  style="padding: 2rem;"
->
-  <form
-    class=""
-    novalidate="novalidate"
-  >
-    <header>
-      <p
-        class="text-muted"
-      >
-        Click submit button to trigger form validations
-      </p>
-    </header>
-    <fieldset
-      class="form-group"
-    >
-      <legend
-        class="bv-no-focus-ring col-form-label pt-0"
-        tabindex="-1"
-      >
-        Name
-        <span
-          class="ml-1 text-danger"
-        >
-          *
-        </span>
-      </legend>
-      <div
-        class="bv-no-focus-ring"
-        role="group"
-        tabindex="-1"
-      >
-        <input
-          aria-required="true"
-          class="form-control"
-          name="name"
-          required="required"
-          type="text"
-        />
-        <div
-          class="invalid-feedback"
-        >
-          
-        </div>
-        <!---->
-        <!---->
-        <!---->
-      </div>
-    </fieldset>
-    <footer>
-      <button
-        class="btn btn-primary"
-        type="submit"
-      >
-        Submit
-      </button>
-    </footer>
-  </form>
-</div>
-`;
-
 exports[`Storyshots Validations Required 1`] = `
 <div
   style="padding: 2rem;"
@@ -2745,10 +3001,196 @@ exports[`Storyshots Validations Required 1`] = `
         tabindex="-1"
       >
         <input
-          aria-required="true"
           class="form-control"
           name="name"
-          required="required"
+          type="text"
+        />
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </fieldset>
+    <footer>
+      <button
+        class="btn btn-primary"
+        type="submit"
+      >
+        Submit
+      </button>
+    </footer>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Validations Required If 1`] = `
+<div
+  style="padding: 2rem;"
+>
+  <form
+    class=""
+    novalidate="novalidate"
+  >
+    <header>
+      <p
+        class="text-muted"
+      >
+        Click submit button to trigger form validations
+      </p>
+    </header>
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="bv-no-focus-ring col-form-label pt-0"
+        tabindex="-1"
+      >
+        Gender
+      </legend>
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <div
+          class="bv-no-focus-ring"
+          role="radiogroup"
+          tabindex="-1"
+        >
+          <div
+            class="custom-control custom-control-inline custom-radio"
+          >
+            <input
+              autocomplete="off"
+              class="custom-control-input"
+              name="gender"
+              type="radio"
+              value="Male"
+            />
+            <label
+              class="custom-control-label"
+            >
+              <span>
+                Male
+              </span>
+            </label>
+          </div>
+          <div
+            class="custom-control custom-control-inline custom-radio"
+          >
+            <input
+              autocomplete="off"
+              class="custom-control-input"
+              name="gender"
+              type="radio"
+              value="Female"
+            />
+            <label
+              class="custom-control-label"
+            >
+              <span>
+                Female
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </fieldset>
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="bv-no-focus-ring col-form-label pt-0"
+        tabindex="-1"
+      >
+        Last period
+      </legend>
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <input
+          class="form-control"
+          name="last_period"
+          type="text"
+        />
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <small
+          class="form-text text-muted"
+          tabindex="-1"
+        >
+          Currently it only supports truthy check. Operators support will come soon.
+        </small>
+      </div>
+    </fieldset>
+    <footer>
+      <button
+        class="btn btn-primary"
+        type="submit"
+      >
+        Submit
+      </button>
+    </footer>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Validations Required With If 1`] = `
+<div
+  style="padding: 2rem;"
+>
+  <form
+    class=""
+    novalidate="novalidate"
+  >
+    <header>
+      <p
+        class="text-muted"
+      >
+        Click submit button to trigger form validations
+      </p>
+    </header>
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="bv-no-focus-ring col-form-label pt-0"
+        tabindex="-1"
+      >
+        ID
+        <span
+          class="ml-1 text-danger"
+        >
+          *
+        </span>
+      </legend>
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <input
+          class="form-control"
+          name="id"
           type="text"
         />
         <div

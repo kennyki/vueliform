@@ -31,3 +31,63 @@ export const Required = () => ({
   },
   methods: actionsData
 })
+
+export const RequiredWithIf = () => ({
+  components: { Vueliform },
+  template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
+  props: {
+    description: {
+      default: 'Click submit button to trigger form validations'
+    },
+    schema: {
+      default: () => object('schema', [
+        {
+          name: 'id',
+          label: 'ID',
+          validations: {
+            required: true
+          }
+        },
+        {
+          if: 'id',
+          name: 'name',
+          label: 'Name',
+          validations: {
+            required: true
+          },
+          description: 'The form cannot be submitted until this field has a value'
+        }
+      ])
+    }
+  },
+  methods: actionsData
+})
+
+export const RequiredIf = () => ({
+  components: { Vueliform },
+  template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
+  props: {
+    description: {
+      default: 'Click submit button to trigger form validations'
+    },
+    schema: {
+      default: () => object('schema', [
+        {
+          name: 'gender',
+          label: 'Gender',
+          type: 'radio',
+          options: ['Male', 'Female']
+        },
+        {
+          name: 'last_period',
+          label: 'Last period',
+          validations: {
+            requiredIf: 'gender'
+          },
+          description: 'Currently it only supports truthy check. Operators support will come soon.'
+        }
+      ])
+    }
+  },
+  methods: actionsData
+})

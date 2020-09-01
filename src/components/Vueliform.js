@@ -78,7 +78,7 @@ export default {
     }
 
     this.schema.forEach((field) => {
-      const { name, validations } = field
+      const { if: condition, name, validations } = field
 
       if (!validations) {
         return
@@ -87,14 +87,21 @@ export default {
       const v = validationsData.updates[name] || {}
 
       Object.keys(validations).forEach((validationName) => {
-        const validator = this.useValidators[validationName]
+        let validator = this.useValidators[validationName]
+        let params = validations[validationName]
+
+        // special handling
+        if (validationName === 'required' && condition) {
+          validator = this.useValidators.requiredIf
+          params = () => this.checkIfPass(field, false)
+        } else if (validationName === 'requiredIf') {
+          params = () => this.checkIfPass(field, false, validations[validationName])
+        }
 
         if (!validator) {
           // TODO: should we throw an error?
           return
         }
-
-        const params = validations[validationName]
 
         // user must pass in correct params (an array for multiple arguments) to the schema
         v[validationName] = validator.withParams
@@ -432,6 +439,7 @@ export default {
       const {
         label,
         description,
+        if: condition,
         type,
         validations,
         validationFeedbacks,
@@ -482,8 +490,7 @@ export default {
 
       return messages
     },
-    checkIfPass (field) {
-      const condition = field.if || null
+    checkIfPass (field, resetValue = true, condition = field.if) {
       let pass = true
 
       if (typeof condition === 'string') {
@@ -493,7 +500,7 @@ export default {
       }
       // TODO: support "if" with operators
 
-      if (!pass) {
+      if (!pass && resetValue) {
         // clear existing value if there is any
         this.resetValue(field)
       }
