@@ -88,3 +88,32 @@ export const RequiredIf = () => ({
   },
   methods: actionsData
 })
+
+export const RequiredUnless = () => ({
+  components: { Vueliform },
+  template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
+  props: {
+    description: {
+      default: 'Using "requiredUnless". In this example, the comments field is required unless the agreement checkbox is checked'
+    },
+    schema: {
+      default: () => object('schema', [
+        {
+          name: 'agreement',
+          label: 'Agree to amendment',
+          type: 'checkbox'
+        },
+        {
+          name: 'comments',
+          label: 'Comments',
+          type: 'textarea',
+          validations: {
+            requiredUnless: 'agreement'
+          },
+          description: 'Currently it only supports truthy check. Operators support will come soon.'
+        }
+      ])
+    }
+  },
+  methods: actionsData
+})

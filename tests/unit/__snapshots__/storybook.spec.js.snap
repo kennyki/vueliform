@@ -3039,64 +3039,33 @@ exports[`Storyshots Validations Required If 1`] = `
       <p
         class="text-muted"
       >
-        Click submit button to trigger form validations
+        Using "requiredIf". In this example, the comments field is only required when the agreement checkbox is checked
       </p>
     </header>
     <fieldset
       class="form-group"
     >
-      <legend
-        class="bv-no-focus-ring col-form-label pt-0"
-        tabindex="-1"
-      >
-        Gender
-      </legend>
+      <!---->
       <div
         class="bv-no-focus-ring"
         role="group"
         tabindex="-1"
       >
         <div
-          class="bv-no-focus-ring"
-          role="radiogroup"
-          tabindex="-1"
+          class="custom-control custom-checkbox"
         >
-          <div
-            class="custom-control custom-control-inline custom-radio"
+          <input
+            autocomplete="off"
+            class="custom-control-input"
+            name="agreement"
+            type="checkbox"
+            value="true"
+          />
+          <label
+            class="custom-control-label"
           >
-            <input
-              autocomplete="off"
-              class="custom-control-input"
-              name="gender"
-              type="radio"
-              value="Male"
-            />
-            <label
-              class="custom-control-label"
-            >
-              <span>
-                Male
-              </span>
-            </label>
-          </div>
-          <div
-            class="custom-control custom-control-inline custom-radio"
-          >
-            <input
-              autocomplete="off"
-              class="custom-control-input"
-              name="gender"
-              type="radio"
-              value="Female"
-            />
-            <label
-              class="custom-control-label"
-            >
-              <span>
-                Female
-              </span>
-            </label>
-          </div>
+            Agree to amendment
+          </label>
         </div>
         <div
           class="invalid-feedback"
@@ -3115,17 +3084,120 @@ exports[`Storyshots Validations Required If 1`] = `
         class="bv-no-focus-ring col-form-label pt-0"
         tabindex="-1"
       >
-        Last period
+        Comments
       </legend>
       <div
         class="bv-no-focus-ring"
         role="group"
         tabindex="-1"
       >
-        <input
+        <textarea
           class="form-control"
-          name="last_period"
-          type="text"
+          name="comments"
+          rows="2"
+          wrap="soft"
+        />
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <small
+          class="form-text text-muted"
+          tabindex="-1"
+        >
+          Currently it only supports truthy check. Operators support will come soon.
+        </small>
+      </div>
+    </fieldset>
+    <footer>
+      <button
+        class="btn btn-primary"
+        type="submit"
+      >
+        Submit
+      </button>
+    </footer>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Validations Required Unless 1`] = `
+<div
+  style="padding: 2rem;"
+>
+  <form
+    class=""
+    novalidate="novalidate"
+  >
+    <header>
+      <p
+        class="text-muted"
+      >
+        Using "requiredUnless". In this example, the comments field is required unless the agreement checkbox is checked
+      </p>
+    </header>
+    <fieldset
+      class="form-group"
+    >
+      <!---->
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <div
+          class="custom-control custom-checkbox"
+        >
+          <input
+            autocomplete="off"
+            class="custom-control-input"
+            name="agreement"
+            type="checkbox"
+            value="true"
+          />
+          <label
+            class="custom-control-label"
+          >
+            Agree to amendment
+          </label>
+        </div>
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </fieldset>
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="bv-no-focus-ring col-form-label pt-0"
+        tabindex="-1"
+      >
+        Comments
+        <span
+          class="ml-1 text-danger"
+        >
+          *
+        </span>
+      </legend>
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <textarea
+          class="form-control"
+          name="comments"
+          rows="2"
+          wrap="soft"
         />
         <div
           class="invalid-feedback"
@@ -3166,7 +3238,7 @@ exports[`Storyshots Validations Required With If 1`] = `
       <p
         class="text-muted"
       >
-        Click submit button to trigger form validations
+        Using "required" validation on a field with "if". In this example, you can submit the form until the nickname field appears
       </p>
     </header>
     <fieldset
@@ -3176,12 +3248,7 @@ exports[`Storyshots Validations Required With If 1`] = `
         class="bv-no-focus-ring col-form-label pt-0"
         tabindex="-1"
       >
-        ID
-        <span
-          class="ml-1 text-danger"
-        >
-          *
-        </span>
+        Name
       </legend>
       <div
         class="bv-no-focus-ring"
@@ -3190,7 +3257,7 @@ exports[`Storyshots Validations Required With If 1`] = `
       >
         <input
           class="form-control"
-          name="id"
+          name="name"
           type="text"
         />
         <div

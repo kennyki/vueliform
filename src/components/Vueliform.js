@@ -96,6 +96,8 @@ export default {
           params = () => this.checkIfPass(field, false)
         } else if (validationName === 'requiredIf') {
           params = () => this.checkIfPass(field, false, validations[validationName])
+        } else if (validationName === 'requiredUnless') {
+          params = () => this.checkIfPass(field, false, validations[validationName])
         }
 
         if (!validator) {
@@ -310,7 +312,9 @@ export default {
 
       if (validations.required
         || (validations.requiredIf
-          && this.checkIfPass(field, false, validations.requiredIf))) {
+          && this.checkIfPass(field, false, validations.requiredIf))
+        || (validations.requiredUnless
+          && !this.checkIfPass(field, false, validations.requiredUnless))) {
         children.push(h('span', { class: 'ml-1 text-danger' }, '*'))
       }
 

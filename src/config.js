@@ -21,7 +21,8 @@ import {
 } from 'bootstrap-vue'
 import {
   required,
-  requiredIf
+  requiredIf,
+  requiredUnless
 } from 'vuelidate/lib/validators'
 
 const formComponents = {
@@ -57,6 +58,11 @@ const formValidators = {
   },
   requiredIf: {
     fn: requiredIf,
+    withParams: true,
+    feedback: 'This field is required'
+  },
+  requiredUnless: {
+    fn: requiredUnless,
     withParams: true,
     feedback: 'This field is required'
   }
