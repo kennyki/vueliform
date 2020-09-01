@@ -308,7 +308,9 @@ export default {
       const { label, validations = {} } = field
       const children = [label]
 
-      if (validations.required) {
+      if (validations.required
+        || (validations.requiredIf
+          && this.checkIfPass(field, false, validations.requiredIf))) {
         children.push(h('span', { class: 'ml-1 text-danger' }, '*'))
       }
 

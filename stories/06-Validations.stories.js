@@ -73,16 +73,16 @@ export const RequiredIf = () => ({
     schema: {
       default: () => object('schema', [
         {
-          name: 'gender',
-          label: 'Gender',
-          type: 'radio',
-          options: ['Male', 'Female']
+          name: 'first_agreement',
+          label: 'Agree to first amendment',
+          type: 'checkbox'
         },
         {
-          name: 'last_period',
-          label: 'Last period',
+          name: 'second_agreement',
+          label: 'Agree to second amendment',
+          type: 'checkbox',
           validations: {
-            requiredIf: 'gender'
+            requiredIf: 'first_agreement'
           },
           description: 'Currently it only supports truthy check. Operators support will come soon.'
         }
