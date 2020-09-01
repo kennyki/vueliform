@@ -37,21 +37,18 @@ export const RequiredWithIf = () => ({
   template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
   props: {
     description: {
-      default: 'Click submit button to trigger form validations'
+      default: 'Using "required" validation on a field with "if". In this example, you can submit the form until the nickname field appears'
     },
     schema: {
       default: () => object('schema', [
         {
-          name: 'id',
-          label: 'ID',
-          validations: {
-            required: true
-          }
+          name: 'name',
+          label: 'Name'
         },
         {
-          if: 'id',
-          name: 'name',
-          label: 'Name',
+          if: 'name',
+          name: 'nickname',
+          label: 'Nickname',
           validations: {
             required: true
           },
@@ -68,7 +65,7 @@ export const RequiredIf = () => ({
   template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
   props: {
     description: {
-      default: 'Click submit button to trigger form validations'
+      default: 'Using "requiredIf". In this example, the comments field is only required when the agreement checkbox is checked'
     },
     schema: {
       default: () => object('schema', [
