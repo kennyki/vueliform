@@ -22,7 +22,12 @@ import {
 import {
   required,
   requiredIf,
-  requiredUnless
+  requiredUnless,
+  minLength,
+  maxLength,
+  minValue,
+  maxValue,
+  between
 } from 'vuelidate/lib/validators'
 
 const formComponents = {
@@ -65,6 +70,31 @@ const formValidators = {
     fn: requiredUnless,
     withParams: true,
     feedback: 'This field is required'
+  },
+  minLength: {
+    fn: minLength,
+    withParams: true,
+    feedback: 'This field requires a minimum length of ${0}'
+  },
+  maxLength: {
+    fn: maxLength,
+    withParams: true,
+    feedback: 'This field allows a maximum length of ${0}'
+  },
+  minValue: {
+    fn: minValue,
+    withParams: true,
+    feedback: 'This field requires a minimum value of ${0}'
+  },
+  maxValue: {
+    fn: maxValue,
+    withParams: true,
+    feedback: 'This field allows a maximum value of ${0}'
+  },
+  between: {
+    fn: between,
+    withParams: true,
+    feedback: 'This field requires value between ${0} and ${1}'
   }
 }
 

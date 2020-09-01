@@ -117,3 +117,217 @@ export const RequiredUnless = () => ({
   },
   methods: actionsData
 })
+
+export const MinLength = () => ({
+  components: { Vueliform },
+  template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
+  props: {
+    description: {
+      default: '"minLength" works with string or array fields, e.g. "input", "textarea", "checkbox", "select" (with multiple mode), "tags"'
+    },
+    schema: {
+      default: () => object('schema', [
+        {
+          name: 'name',
+          label: 'Name',
+          validations: {
+            required: true,
+            minLength: 3
+          }
+        },
+        {
+          name: 'favourite_food',
+          label: 'Favourite food',
+          type: 'checkbox',
+          options: ['Rice', 'Bread', 'Noodle', 'Curry', 'Salad', 'Fruits'],
+          validations: {
+            required: true,
+            minLength: 2
+          }
+        },
+        {
+          name: 'favourite_drinks',
+          label: 'Favourite drinks',
+          type: 'select',
+          options: ['Coffee', 'Juice', 'Water'],
+          multiple: true,
+          validations: {
+            required: true,
+            minLength: 2
+          }
+        },
+        {
+          name: 'suggestions',
+          label: 'Add at least 2 suggestions of food/drink',
+          type: 'tags',
+          validations: {
+            required: true,
+            minLength: 2
+          }
+        }
+      ])
+    }
+  },
+  methods: actionsData
+})
+
+export const MaxLength = () => ({
+  components: { Vueliform },
+  template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
+  props: {
+    description: {
+      default: '"maxLength" works with string or array fields, e.g. "input", "textarea", "checkbox", "select" (with multiple mode), "tags"'
+    },
+    schema: {
+      default: () => object('schema', [
+        {
+          name: 'name',
+          label: 'Name',
+          validations: {
+            required: true,
+            maxLength: 10
+          }
+        },
+        {
+          name: 'favourite_food',
+          label: 'Favourite food',
+          type: 'checkbox',
+          options: ['Rice', 'Bread', 'Noodle', 'Curry', 'Salad', 'Fruits'],
+          validations: {
+            required: true,
+            maxLength: 2
+          }
+        },
+        {
+          name: 'favourite_drinks',
+          label: 'Favourite drinks',
+          type: 'select',
+          options: ['Coffee', 'Juice', 'Water'],
+          multiple: true,
+          validations: {
+            required: true,
+            maxLength: 2
+          }
+        },
+        {
+          name: 'suggestions',
+          label: 'Add not more than 2 suggestions of food/drink',
+          type: 'tags',
+          validations: {
+            required: true,
+            maxLength: 2
+          }
+        }
+      ])
+    }
+  },
+  methods: actionsData
+})
+
+export const MinValue = () => ({
+  components: { Vueliform },
+  template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
+  props: {
+    description: {
+      default: '"minValue" works with number fields, e.g. "input" (with number type), "rating", "spinbutton". Note: while it should work with "datepicker" field as well, we recommend to just use its "min" prop.'
+    },
+    schema: {
+      default: () => object('schema', [
+        {
+          name: 'legal_age',
+          label: 'Legal age',
+          type: 'number',
+          validations: {
+            required: true,
+            minValue: 18
+          }
+        },
+        {
+          name: 'rating',
+          label: 'Rating',
+          type: 'rating',
+          validations: {
+            required: true,
+            minValue: 2
+          }
+        },
+        {
+          name: 'meals',
+          label: 'Meals you had today',
+          type: 'spinbutton',
+          validations: {
+            required: true,
+            minValue: 2
+          }
+        }
+      ])
+    }
+  },
+  methods: actionsData
+})
+
+export const MaxValue = () => ({
+  components: { Vueliform },
+  template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
+  props: {
+    description: {
+      default: '"maxValue" works with number fields, e.g. "input" (with number type), "rating", "spinbutton". Note: while it should work with "datepicker" field as well, we recommend to just use its "max" prop.'
+    },
+    schema: {
+      default: () => object('schema', [
+        {
+          name: 'children_age',
+          label: 'Children age',
+          type: 'number',
+          validations: {
+            required: true,
+            maxValue: 12
+          }
+        },
+        {
+          name: 'rating',
+          label: 'Rating',
+          type: 'rating',
+          validations: {
+            required: true,
+            maxValue: 4
+          }
+        },
+        {
+          name: 'meals',
+          label: 'Meals you had today',
+          type: 'spinbutton',
+          validations: {
+            required: true,
+            maxValue: 3
+          }
+        }
+      ])
+    }
+  },
+  methods: actionsData
+})
+
+export const Between = () => ({
+  components: { Vueliform },
+  template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
+  props: {
+    description: {
+      default: '"between" works with number fields, e.g. "input" (with number type), "rating", "spinbutton". Note: while it should work with "datepicker" field as well, we recommend to just use its "min" and "max" props.'
+    },
+    schema: {
+      default: () => object('schema', [
+        {
+          name: 'adult_age',
+          label: 'Adult age',
+          type: 'number',
+          validations: {
+            required: true,
+            between: [18, 60]
+          }
+        }
+      ])
+    }
+  },
+  methods: actionsData
+})

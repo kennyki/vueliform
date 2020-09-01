@@ -2966,6 +2966,1473 @@ exports[`Storyshots Layout Manual 1`] = `
 </div>
 `;
 
+exports[`Storyshots Validations Between 1`] = `
+<div
+  style="padding: 2rem;"
+>
+  <form
+    class=""
+    novalidate="novalidate"
+  >
+    <header>
+      <p
+        class="text-muted"
+      >
+        "between" works with number fields, e.g. "input" (with number type), "rating", "spinbutton". Note: while it should work with "datepicker" field as well, we recommend to just use its "min" and "max" props.
+      </p>
+    </header>
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="bv-no-focus-ring col-form-label pt-0"
+        tabindex="-1"
+      >
+        Adult age
+        <span
+          class="ml-1 text-danger"
+        >
+          *
+        </span>
+      </legend>
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <input
+          class="form-control"
+          name="adult_age"
+          type="number"
+        />
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </fieldset>
+    <footer>
+      <button
+        class="btn btn-primary"
+        type="submit"
+      >
+        Submit
+      </button>
+    </footer>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Validations Max Length 1`] = `
+<div
+  style="padding: 2rem;"
+>
+  <form
+    class=""
+    novalidate="novalidate"
+  >
+    <header>
+      <p
+        class="text-muted"
+      >
+        "maxLength" works with string or array fields, e.g. "input", "textarea", "checkbox", "select" (with multiple mode), "tags"
+      </p>
+    </header>
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="bv-no-focus-ring col-form-label pt-0"
+        tabindex="-1"
+      >
+        Name
+        <span
+          class="ml-1 text-danger"
+        >
+          *
+        </span>
+      </legend>
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <input
+          class="form-control"
+          name="name"
+          type="text"
+        />
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </fieldset>
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="bv-no-focus-ring col-form-label pt-0"
+        tabindex="-1"
+      >
+        Favourite food
+        <span
+          class="ml-1 text-danger"
+        >
+          *
+        </span>
+      </legend>
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <div
+          class="bv-no-focus-ring"
+          role="group"
+          tabindex="-1"
+        >
+          <div
+            class="custom-control custom-control-inline custom-checkbox"
+          >
+            <input
+              autocomplete="off"
+              class="custom-control-input"
+              name="favourite_food"
+              type="checkbox"
+              value="Rice"
+            />
+            <label
+              class="custom-control-label"
+            >
+              <span>
+                Rice
+              </span>
+            </label>
+          </div>
+          <div
+            class="custom-control custom-control-inline custom-checkbox"
+          >
+            <input
+              autocomplete="off"
+              class="custom-control-input"
+              name="favourite_food"
+              type="checkbox"
+              value="Bread"
+            />
+            <label
+              class="custom-control-label"
+            >
+              <span>
+                Bread
+              </span>
+            </label>
+          </div>
+          <div
+            class="custom-control custom-control-inline custom-checkbox"
+          >
+            <input
+              autocomplete="off"
+              class="custom-control-input"
+              name="favourite_food"
+              type="checkbox"
+              value="Noodle"
+            />
+            <label
+              class="custom-control-label"
+            >
+              <span>
+                Noodle
+              </span>
+            </label>
+          </div>
+          <div
+            class="custom-control custom-control-inline custom-checkbox"
+          >
+            <input
+              autocomplete="off"
+              class="custom-control-input"
+              name="favourite_food"
+              type="checkbox"
+              value="Curry"
+            />
+            <label
+              class="custom-control-label"
+            >
+              <span>
+                Curry
+              </span>
+            </label>
+          </div>
+          <div
+            class="custom-control custom-control-inline custom-checkbox"
+          >
+            <input
+              autocomplete="off"
+              class="custom-control-input"
+              name="favourite_food"
+              type="checkbox"
+              value="Salad"
+            />
+            <label
+              class="custom-control-label"
+            >
+              <span>
+                Salad
+              </span>
+            </label>
+          </div>
+          <div
+            class="custom-control custom-control-inline custom-checkbox"
+          >
+            <input
+              autocomplete="off"
+              class="custom-control-input"
+              name="favourite_food"
+              type="checkbox"
+              value="Fruits"
+            />
+            <label
+              class="custom-control-label"
+            >
+              <span>
+                Fruits
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </fieldset>
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="bv-no-focus-ring col-form-label pt-0"
+        tabindex="-1"
+      >
+        Favourite drinks
+        <span
+          class="ml-1 text-danger"
+        >
+          *
+        </span>
+      </legend>
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <select
+          class="custom-select"
+          multiple="multiple"
+          name="favourite_drinks"
+        >
+          <option
+            value="Coffee"
+          >
+            Coffee
+          </option>
+          <option
+            value="Juice"
+          >
+            Juice
+          </option>
+          <option
+            value="Water"
+          >
+            Water
+          </option>
+        </select>
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </fieldset>
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="bv-no-focus-ring col-form-label pt-0"
+        tabindex="-1"
+      >
+        Add not more than 2 suggestions of food/drink
+        <span
+          class="ml-1 text-danger"
+        >
+          *
+        </span>
+      </legend>
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <div
+          class="b-form-tags form-control h-auto"
+          role="group"
+          tabindex="-1"
+        >
+          <output
+            aria-atomic="true"
+            aria-live="off"
+            aria-relevant="additions text"
+            class="sr-only"
+            role="status"
+          >
+            
+          </output>
+          <div
+            aria-atomic="true"
+            aria-live="off"
+            class="sr-only"
+            role="status"
+          >
+            
+          </div>
+          <ul
+            class="b-form-tags-list list-unstyled mb-0 d-flex flex-wrap align-items-center"
+          >
+            <li
+              aria-live="off"
+              class="flex-grow-1"
+              role="none"
+            >
+              <div
+                class="d-flex"
+                role="group"
+              >
+                <input
+                  class="b-form-tags-input w-100 flex-grow-1 p-0 m-0 bg-transparent border-0"
+                  placeholder="Add tag..."
+                  style="outline: 0; min-width: 5rem;"
+                  type="text"
+                  value=""
+                />
+                <button
+                  class="btn b-form-tags-button py-0 btn-outline-secondary disabled invisible"
+                  disabled="disabled"
+                  style="font-size: 90%;"
+                  type="button"
+                >
+                  Add
+                </button>
+              </div>
+            </li>
+          </ul>
+          <div
+            aria-atomic="true"
+            aria-live="polite"
+          >
+            <!---->
+            <!---->
+          </div>
+        </div>
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </fieldset>
+    <footer>
+      <button
+        class="btn btn-primary"
+        type="submit"
+      >
+        Submit
+      </button>
+    </footer>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Validations Max Value 1`] = `
+<div
+  style="padding: 2rem;"
+>
+  <form
+    class=""
+    novalidate="novalidate"
+  >
+    <header>
+      <p
+        class="text-muted"
+      >
+        "maxValue" works with number fields, e.g. "input" (with number type), "rating", "spinbutton". Note: while it should work with "datepicker" field as well, we recommend to just use its "max" prop.
+      </p>
+    </header>
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="bv-no-focus-ring col-form-label pt-0"
+        tabindex="-1"
+      >
+        Children age
+        <span
+          class="ml-1 text-danger"
+        >
+          *
+        </span>
+      </legend>
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <input
+          class="form-control"
+          name="children_age"
+          type="number"
+        />
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </fieldset>
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="bv-no-focus-ring col-form-label pt-0"
+        tabindex="-1"
+      >
+        Rating
+        <span
+          class="ml-1 text-danger"
+        >
+          *
+        </span>
+      </legend>
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <output
+          aria-live="off"
+          aria-valuemax="5"
+          aria-valuemin="1"
+          class="b-rating form-control align-items-center d-flex"
+          dir="ltr"
+          role="slider"
+          tabindex="0"
+        >
+          <span
+            class="b-rating-star flex-grow-1 focused b-rating-star-empty"
+            tabindex="-1"
+          >
+            <span
+              class="b-rating-icon"
+            >
+              <svg
+                aria-label="star"
+                class="bi-star b-icon bi"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"
+                    fill-rule="evenodd"
+                  />
+                </g>
+              </svg>
+            </span>
+          </span>
+          <span
+            class="b-rating-star flex-grow-1 b-rating-star-empty"
+            tabindex="-1"
+          >
+            <span
+              class="b-rating-icon"
+            >
+              <svg
+                aria-label="star"
+                class="bi-star b-icon bi"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"
+                    fill-rule="evenodd"
+                  />
+                </g>
+              </svg>
+            </span>
+          </span>
+          <span
+            class="b-rating-star flex-grow-1 b-rating-star-empty"
+            tabindex="-1"
+          >
+            <span
+              class="b-rating-icon"
+            >
+              <svg
+                aria-label="star"
+                class="bi-star b-icon bi"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"
+                    fill-rule="evenodd"
+                  />
+                </g>
+              </svg>
+            </span>
+          </span>
+          <span
+            class="b-rating-star flex-grow-1 b-rating-star-empty"
+            tabindex="-1"
+          >
+            <span
+              class="b-rating-icon"
+            >
+              <svg
+                aria-label="star"
+                class="bi-star b-icon bi"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"
+                    fill-rule="evenodd"
+                  />
+                </g>
+              </svg>
+            </span>
+          </span>
+          <span
+            class="b-rating-star flex-grow-1 b-rating-star-empty"
+            tabindex="-1"
+          >
+            <span
+              class="b-rating-icon"
+            >
+              <svg
+                aria-label="star"
+                class="bi-star b-icon bi"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"
+                    fill-rule="evenodd"
+                  />
+                </g>
+              </svg>
+            </span>
+          </span>
+          <input
+            name="rating"
+            type="hidden"
+            value=""
+          />
+        </output>
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </fieldset>
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="bv-no-focus-ring col-form-label pt-0"
+        tabindex="-1"
+      >
+        Meals you had today
+        <span
+          class="ml-1 text-danger"
+        >
+          *
+        </span>
+      </legend>
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <div
+          class="b-form-spinbutton form-control d-flex align-items-stretch"
+          lang="en-US"
+          role="group"
+          tabindex="-1"
+        >
+          <button
+            aria-keyshortcuts="ArrowDown"
+            aria-label="Decrement"
+            class="btn btn-sm border-0 rounded-0 py-0"
+            tabindex="-1"
+            type="button"
+          >
+            <div>
+              <svg
+                aria-hidden="true"
+                aria-label="dash"
+                class="bi-dash b-icon bi"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  transform="translate(8 8) scale(1.25 1.25) translate(-8 -8)"
+                >
+                  <path
+                    d="M3.5 8a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.5-.5z"
+                    fill-rule="evenodd"
+                  />
+                </g>
+              </svg>
+            </div>
+          </button>
+          <input
+            name="meals"
+            type="hidden"
+            value=""
+          />
+          <output
+            aria-live="off"
+            aria-valuemax="100"
+            aria-valuemin="1"
+            class="flex-grow-1 align-self-center border-left border-right"
+            dir="ltr"
+            role="spinbutton"
+            tabindex="0"
+          >
+            <bdi>
+              
+            </bdi>
+          </output>
+          <button
+            aria-keyshortcuts="ArrowUp"
+            aria-label="Increment"
+            class="btn btn-sm border-0 rounded-0 py-0"
+            tabindex="-1"
+            type="button"
+          >
+            <div>
+              <svg
+                aria-hidden="true"
+                aria-label="plus"
+                class="bi-plus b-icon bi"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  transform="translate(8 8) scale(1.25 1.25) translate(-8 -8)"
+                >
+                  <path
+                    d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"
+                    fill-rule="evenodd"
+                  />
+                  <path
+                    d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"
+                    fill-rule="evenodd"
+                  />
+                </g>
+              </svg>
+            </div>
+          </button>
+        </div>
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </fieldset>
+    <footer>
+      <button
+        class="btn btn-primary"
+        type="submit"
+      >
+        Submit
+      </button>
+    </footer>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Validations Min Length 1`] = `
+<div
+  style="padding: 2rem;"
+>
+  <form
+    class=""
+    novalidate="novalidate"
+  >
+    <header>
+      <p
+        class="text-muted"
+      >
+        "minLength" works with string or array fields, e.g. "input", "textarea", "checkbox", "select" (with multiple mode), "tags"
+      </p>
+    </header>
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="bv-no-focus-ring col-form-label pt-0"
+        tabindex="-1"
+      >
+        Name
+        <span
+          class="ml-1 text-danger"
+        >
+          *
+        </span>
+      </legend>
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <input
+          class="form-control"
+          name="name"
+          type="text"
+        />
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </fieldset>
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="bv-no-focus-ring col-form-label pt-0"
+        tabindex="-1"
+      >
+        Favourite food
+        <span
+          class="ml-1 text-danger"
+        >
+          *
+        </span>
+      </legend>
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <div
+          class="bv-no-focus-ring"
+          role="group"
+          tabindex="-1"
+        >
+          <div
+            class="custom-control custom-control-inline custom-checkbox"
+          >
+            <input
+              autocomplete="off"
+              class="custom-control-input"
+              name="favourite_food"
+              type="checkbox"
+              value="Rice"
+            />
+            <label
+              class="custom-control-label"
+            >
+              <span>
+                Rice
+              </span>
+            </label>
+          </div>
+          <div
+            class="custom-control custom-control-inline custom-checkbox"
+          >
+            <input
+              autocomplete="off"
+              class="custom-control-input"
+              name="favourite_food"
+              type="checkbox"
+              value="Bread"
+            />
+            <label
+              class="custom-control-label"
+            >
+              <span>
+                Bread
+              </span>
+            </label>
+          </div>
+          <div
+            class="custom-control custom-control-inline custom-checkbox"
+          >
+            <input
+              autocomplete="off"
+              class="custom-control-input"
+              name="favourite_food"
+              type="checkbox"
+              value="Noodle"
+            />
+            <label
+              class="custom-control-label"
+            >
+              <span>
+                Noodle
+              </span>
+            </label>
+          </div>
+          <div
+            class="custom-control custom-control-inline custom-checkbox"
+          >
+            <input
+              autocomplete="off"
+              class="custom-control-input"
+              name="favourite_food"
+              type="checkbox"
+              value="Curry"
+            />
+            <label
+              class="custom-control-label"
+            >
+              <span>
+                Curry
+              </span>
+            </label>
+          </div>
+          <div
+            class="custom-control custom-control-inline custom-checkbox"
+          >
+            <input
+              autocomplete="off"
+              class="custom-control-input"
+              name="favourite_food"
+              type="checkbox"
+              value="Salad"
+            />
+            <label
+              class="custom-control-label"
+            >
+              <span>
+                Salad
+              </span>
+            </label>
+          </div>
+          <div
+            class="custom-control custom-control-inline custom-checkbox"
+          >
+            <input
+              autocomplete="off"
+              class="custom-control-input"
+              name="favourite_food"
+              type="checkbox"
+              value="Fruits"
+            />
+            <label
+              class="custom-control-label"
+            >
+              <span>
+                Fruits
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </fieldset>
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="bv-no-focus-ring col-form-label pt-0"
+        tabindex="-1"
+      >
+        Favourite drinks
+        <span
+          class="ml-1 text-danger"
+        >
+          *
+        </span>
+      </legend>
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <select
+          class="custom-select"
+          multiple="multiple"
+          name="favourite_drinks"
+        >
+          <option
+            value="Coffee"
+          >
+            Coffee
+          </option>
+          <option
+            value="Juice"
+          >
+            Juice
+          </option>
+          <option
+            value="Water"
+          >
+            Water
+          </option>
+        </select>
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </fieldset>
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="bv-no-focus-ring col-form-label pt-0"
+        tabindex="-1"
+      >
+        Add at least 2 suggestions of food/drink
+        <span
+          class="ml-1 text-danger"
+        >
+          *
+        </span>
+      </legend>
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <div
+          class="b-form-tags form-control h-auto"
+          role="group"
+          tabindex="-1"
+        >
+          <output
+            aria-atomic="true"
+            aria-live="off"
+            aria-relevant="additions text"
+            class="sr-only"
+            role="status"
+          >
+            
+          </output>
+          <div
+            aria-atomic="true"
+            aria-live="off"
+            class="sr-only"
+            role="status"
+          >
+            
+          </div>
+          <ul
+            class="b-form-tags-list list-unstyled mb-0 d-flex flex-wrap align-items-center"
+          >
+            <li
+              aria-live="off"
+              class="flex-grow-1"
+              role="none"
+            >
+              <div
+                class="d-flex"
+                role="group"
+              >
+                <input
+                  class="b-form-tags-input w-100 flex-grow-1 p-0 m-0 bg-transparent border-0"
+                  placeholder="Add tag..."
+                  style="outline: 0; min-width: 5rem;"
+                  type="text"
+                  value=""
+                />
+                <button
+                  class="btn b-form-tags-button py-0 btn-outline-secondary disabled invisible"
+                  disabled="disabled"
+                  style="font-size: 90%;"
+                  type="button"
+                >
+                  Add
+                </button>
+              </div>
+            </li>
+          </ul>
+          <div
+            aria-atomic="true"
+            aria-live="polite"
+          >
+            <!---->
+            <!---->
+          </div>
+        </div>
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </fieldset>
+    <footer>
+      <button
+        class="btn btn-primary"
+        type="submit"
+      >
+        Submit
+      </button>
+    </footer>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Validations Min Value 1`] = `
+<div
+  style="padding: 2rem;"
+>
+  <form
+    class=""
+    novalidate="novalidate"
+  >
+    <header>
+      <p
+        class="text-muted"
+      >
+        "minValue" works with number fields, e.g. "input" (with number type), "rating", "spinbutton". Note: while it should work with "datepicker" field as well, we recommend to just use its "min" prop.
+      </p>
+    </header>
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="bv-no-focus-ring col-form-label pt-0"
+        tabindex="-1"
+      >
+        Legal age
+        <span
+          class="ml-1 text-danger"
+        >
+          *
+        </span>
+      </legend>
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <input
+          class="form-control"
+          name="legal_age"
+          type="number"
+        />
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </fieldset>
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="bv-no-focus-ring col-form-label pt-0"
+        tabindex="-1"
+      >
+        Rating
+        <span
+          class="ml-1 text-danger"
+        >
+          *
+        </span>
+      </legend>
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <output
+          aria-live="off"
+          aria-valuemax="5"
+          aria-valuemin="1"
+          class="b-rating form-control align-items-center d-flex"
+          dir="ltr"
+          role="slider"
+          tabindex="0"
+        >
+          <span
+            class="b-rating-star flex-grow-1 focused b-rating-star-empty"
+            tabindex="-1"
+          >
+            <span
+              class="b-rating-icon"
+            >
+              <svg
+                aria-label="star"
+                class="bi-star b-icon bi"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"
+                    fill-rule="evenodd"
+                  />
+                </g>
+              </svg>
+            </span>
+          </span>
+          <span
+            class="b-rating-star flex-grow-1 b-rating-star-empty"
+            tabindex="-1"
+          >
+            <span
+              class="b-rating-icon"
+            >
+              <svg
+                aria-label="star"
+                class="bi-star b-icon bi"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"
+                    fill-rule="evenodd"
+                  />
+                </g>
+              </svg>
+            </span>
+          </span>
+          <span
+            class="b-rating-star flex-grow-1 b-rating-star-empty"
+            tabindex="-1"
+          >
+            <span
+              class="b-rating-icon"
+            >
+              <svg
+                aria-label="star"
+                class="bi-star b-icon bi"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"
+                    fill-rule="evenodd"
+                  />
+                </g>
+              </svg>
+            </span>
+          </span>
+          <span
+            class="b-rating-star flex-grow-1 b-rating-star-empty"
+            tabindex="-1"
+          >
+            <span
+              class="b-rating-icon"
+            >
+              <svg
+                aria-label="star"
+                class="bi-star b-icon bi"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"
+                    fill-rule="evenodd"
+                  />
+                </g>
+              </svg>
+            </span>
+          </span>
+          <span
+            class="b-rating-star flex-grow-1 b-rating-star-empty"
+            tabindex="-1"
+          >
+            <span
+              class="b-rating-icon"
+            >
+              <svg
+                aria-label="star"
+                class="bi-star b-icon bi"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"
+                    fill-rule="evenodd"
+                  />
+                </g>
+              </svg>
+            </span>
+          </span>
+          <input
+            name="rating"
+            type="hidden"
+            value=""
+          />
+        </output>
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </fieldset>
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="bv-no-focus-ring col-form-label pt-0"
+        tabindex="-1"
+      >
+        Meals you had today
+        <span
+          class="ml-1 text-danger"
+        >
+          *
+        </span>
+      </legend>
+      <div
+        class="bv-no-focus-ring"
+        role="group"
+        tabindex="-1"
+      >
+        <div
+          class="b-form-spinbutton form-control d-flex align-items-stretch"
+          lang="en-US"
+          role="group"
+          tabindex="-1"
+        >
+          <button
+            aria-keyshortcuts="ArrowDown"
+            aria-label="Decrement"
+            class="btn btn-sm border-0 rounded-0 py-0"
+            tabindex="-1"
+            type="button"
+          >
+            <div>
+              <svg
+                aria-hidden="true"
+                aria-label="dash"
+                class="bi-dash b-icon bi"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  transform="translate(8 8) scale(1.25 1.25) translate(-8 -8)"
+                >
+                  <path
+                    d="M3.5 8a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.5-.5z"
+                    fill-rule="evenodd"
+                  />
+                </g>
+              </svg>
+            </div>
+          </button>
+          <input
+            name="meals"
+            type="hidden"
+            value=""
+          />
+          <output
+            aria-live="off"
+            aria-valuemax="100"
+            aria-valuemin="1"
+            class="flex-grow-1 align-self-center border-left border-right"
+            dir="ltr"
+            role="spinbutton"
+            tabindex="0"
+          >
+            <bdi>
+              
+            </bdi>
+          </output>
+          <button
+            aria-keyshortcuts="ArrowUp"
+            aria-label="Increment"
+            class="btn btn-sm border-0 rounded-0 py-0"
+            tabindex="-1"
+            type="button"
+          >
+            <div>
+              <svg
+                aria-hidden="true"
+                aria-label="plus"
+                class="bi-plus b-icon bi"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  transform="translate(8 8) scale(1.25 1.25) translate(-8 -8)"
+                >
+                  <path
+                    d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"
+                    fill-rule="evenodd"
+                  />
+                  <path
+                    d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"
+                    fill-rule="evenodd"
+                  />
+                </g>
+              </svg>
+            </div>
+          </button>
+        </div>
+        <div
+          class="invalid-feedback"
+        >
+          
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </fieldset>
+    <footer>
+      <button
+        class="btn btn-primary"
+        type="submit"
+      >
+        Submit
+      </button>
+    </footer>
+  </form>
+</div>
+`;
+
 exports[`Storyshots Validations Required 1`] = `
 <div
   style="padding: 2rem;"
