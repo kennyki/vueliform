@@ -331,3 +331,242 @@ export const Between = () => ({
   },
   methods: actionsData
 })
+
+export const Alpha = () => ({
+  components: { Vueliform },
+  template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
+  props: {
+    description: {
+      default: 'Use "alpha" to allow only alphabets'
+    },
+    schema: {
+      default: () => object('schema', [
+        {
+          name: 'name',
+          label: 'Name',
+          validations: {
+            alpha: true
+          }
+        }
+      ])
+    }
+  },
+  methods: actionsData
+})
+
+export const AlphaNumeric = () => ({
+  components: { Vueliform },
+  template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
+  props: {
+    description: {
+      default: 'Use "alphaNum" to allow only alphabets and numerics'
+    },
+    schema: {
+      default: () => object('schema', [
+        {
+          name: 'description',
+          label: 'Description',
+          type: 'textarea',
+          validations: {
+            alphaNum: true
+          }
+        }
+      ])
+    }
+  },
+  methods: actionsData
+})
+
+export const Numeric = () => ({
+  components: { Vueliform },
+  template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
+  props: {
+    description: {
+      default: 'Use "numeric" to allow only numerics'
+    },
+    schema: {
+      default: () => object('schema', [
+        {
+          name: 'phone',
+          label: 'Phone number',
+          validations: {
+            numeric: true
+          }
+        }
+      ])
+    }
+  },
+  methods: actionsData
+})
+
+export const Integer = () => ({
+  components: { Vueliform },
+  template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
+  props: {
+    description: {
+      default: 'Use "integer" to allow only positive and negative integers'
+    },
+    schema: {
+      default: () => object('schema', [
+        {
+          name: 'headcount',
+          label: 'Headcount',
+          validations: {
+            integer: true
+          }
+        }
+      ])
+    }
+  },
+  methods: actionsData
+})
+
+export const Decimal = () => ({
+  components: { Vueliform },
+  template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
+  props: {
+    description: {
+      default: 'Use "decimal" to allow only positive and negative decimal numbers'
+    },
+    schema: {
+      default: () => object('schema', [
+        {
+          name: 'price',
+          label: 'Price',
+          validations: {
+            decimal: true
+          }
+        }
+      ])
+    }
+  },
+  methods: actionsData
+})
+
+export const Email = () => ({
+  components: { Vueliform },
+  template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
+  props: {
+    description: {
+      default: 'Use "email" to allow only email addresses'
+    },
+    schema: {
+      default: () => object('schema', [
+        {
+          name: 'email',
+          label: 'Email',
+          validations: {
+            email: true
+          }
+        }
+      ])
+    }
+  },
+  methods: actionsData
+})
+
+export const IPAddress = () => ({
+  components: { Vueliform },
+  template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
+  props: {
+    description: {
+      default: 'Use "ipAddress" to allow only IPv4 addresses'
+    },
+    schema: {
+      default: () => object('schema', [
+        {
+          name: 'server_ip',
+          label: 'Server IP address',
+          validations: {
+            ipAddress: true
+          }
+        }
+      ])
+    }
+  },
+  methods: actionsData
+})
+
+export const MACAddress = () => ({
+  components: { Vueliform },
+  template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
+  props: {
+    description: {
+      default: 'Use "macAddress" to allow only MAC addresses, i.e. 00:1B:44:11:3A:B7. Defaults to ":" seperator'
+    },
+    schema: {
+      default: () => object('schema', [
+        {
+          name: 'sender_mac',
+          label: 'Sender MAC address',
+          validations: {
+            macAddress: true
+          }
+        },
+        {
+          name: 'receiver_mac',
+          label: 'Receiver MAC address',
+          description: 'This requires a format without the colon, i.e. 001B44113AB7',
+          validations: {
+            macAddress: ''
+          }
+        }
+      ])
+    }
+  },
+  methods: actionsData
+})
+
+export const SameAs = () => ({
+  components: { Vueliform },
+  template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
+  props: {
+    description: {
+      default: 'Use "sameAs" to match values'
+    },
+    schema: {
+      default: () => object('schema', [
+        {
+          name: 'password',
+          label: 'Password',
+          type: 'password',
+          validations: {
+            required: true
+          }
+        },
+        {
+          name: 'repeat_password',
+          label: 'Repeat password',
+          type: 'password',
+          validations: {
+            required: true,
+            sameAs: 'password'
+          }
+        }
+      ])
+    }
+  },
+  methods: actionsData
+})
+
+export const URL = () => ({
+  components: { Vueliform },
+  template: '<Vueliform :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
+  props: {
+    description: {
+      default: 'Use "url" to allow only URLs'
+    },
+    schema: {
+      default: () => object('schema', [
+        {
+          name: 'website',
+          label: 'Website',
+          validations: {
+            url: true
+          }
+        }
+      ])
+    }
+  },
+  methods: actionsData
+})

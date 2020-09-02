@@ -109,10 +109,16 @@ export default {
           return
         }
 
-        // user must pass in correct params (an array for multiple arguments) to the schema
-        v[validationName] = validator.withParams
-          ? validator.fn(...(Array.isArray(params) ? params : [params]))
-          : validator.fn
+        if (validator.withParams) {
+          if (validator.transformParams) {
+            params = validator.transformParams(params)
+          }
+
+          // user must pass in correct params (an array for multiple arguments) to the schema
+          v[validationName] = validator.fn(...(Array.isArray(params) ? params : [params]))
+        } else {
+          v[validationName] = validator.fn
+        }
       })
 
       if (Object.keys(v).length !== 0) {
@@ -306,7 +312,9 @@ export default {
         component,
         h(this.useComponents.invalidFeedback, {
           props: { state }
-        }, this.getValidationMessages(field).join('<br>'))
+        }, this.getValidationMessages(field).map((message) => {
+          return h('div', message)
+        }))
       ]
 
       if (shouldRenderLabel) {
@@ -355,9 +363,13 @@ export default {
         vModelEvent: 'update'
       })
 
+      // pass the type in, because formInput is the default render
+      // and it does support a range of types
+      data.props.type = field.type
+
       if (field.type === 'number') {
+        // special handling
         data.props.number = true
-        data.props.type = 'number'
       }
 
       return h(this.useComponents.input, data)

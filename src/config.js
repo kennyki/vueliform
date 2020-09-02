@@ -27,7 +27,17 @@ import {
   maxLength,
   minValue,
   maxValue,
-  between
+  between,
+  alpha,
+  alphaNum,
+  numeric,
+  integer,
+  decimal,
+  email,
+  ipAddress,
+  macAddress,
+  sameAs,
+  url
 } from 'vuelidate/lib/validators'
 
 const formComponents = {
@@ -95,6 +105,59 @@ const formValidators = {
     fn: between,
     withParams: true,
     feedback: 'This field requires value between ${0} and ${1}'
+  },
+  alpha: {
+    fn: alpha,
+    withParams: false,
+    feedback: 'This field accepts only alphabet characters'
+  },
+  alphaNum: {
+    fn: alphaNum,
+    withParams: false,
+    feedback: 'This field accepts only alphanumerics'
+  },
+  numeric: {
+    fn: numeric,
+    withParams: false,
+    feedback: 'This field accepts only numerics'
+  },
+  integer: {
+    fn: integer,
+    withParams: false,
+    feedback: 'This field accepts only positive and negative integers'
+  },
+  decimal: {
+    fn: decimal,
+    withParams: false,
+    feedback: 'This field accepts only positive and negative decimal numbers'
+  },
+  email: {
+    fn: email,
+    withParams: false,
+    feedback: 'This field accepts only valid email address'
+  },
+  ipAddress: {
+    fn: ipAddress,
+    withParams: false,
+    feedback: 'This field accepts only valid IPv4 address'
+  },
+  macAddress: {
+    fn: macAddress,
+    withParams: true,
+    transformParams (params) {
+      return typeof params === 'string' ? params : ':'
+    },
+    feedback: 'This field accepts only valid MAC address'
+  },
+  sameAs: {
+    fn: sameAs,
+    withParams: true,
+    feedback: 'This field must have the same value as ${0}'
+  },
+  url: {
+    fn: url,
+    withParams: false,
+    feedback: 'This field accepts only URL'
   }
 }
 
