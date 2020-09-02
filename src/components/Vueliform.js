@@ -6,6 +6,10 @@ import {
 
 const LAYOUT_TYPES = ['container', 'row', 'formRow', 'col']
 
+const hasValue = (value) => {
+  return typeof value !== 'undefined' && value !== null
+}
+
 export default {
   name: 'Vueliform',
   mixins: [
@@ -254,9 +258,16 @@ export default {
       const currentValue = this.updates[name]
       let shouldRenderLabel = true
 
-      if (currentValue === null || currentValue === undefined && value) {
-        // use default value from the schema
-        this.$set(this.updates, name, value)
+      if (!hasValue(currentValue)) {
+        if (hasValue(value)) {
+          // use default value from the schema
+          this.$set(this.updates, name, value)
+        } else if ((type === 'select' && field.multiple)
+          || (type === 'checkbox' && field.options)
+          || type === 'tags') {
+          // these types require array reference
+          this.$set(this.updates, name, [])
+        }
       }
 
       let component = null
