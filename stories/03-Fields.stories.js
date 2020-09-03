@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions'
-import { withKnobs, object } from '@storybook/addon-knobs'
+import { object } from '@storybook/addon-knobs'
 import { withPadding } from './utils'
 import Vueliform from '../src/components/Vueliform'
 import { actionsData } from './01-Form.stories'
@@ -7,7 +7,7 @@ import { actionsData } from './01-Form.stories'
 export default {
   title: 'Fields',
   excludeStories: /.*Data$/,
-  decorators: [withPadding, withKnobs]
+  decorators: [withPadding]
 }
 
 export const Input = () => ({

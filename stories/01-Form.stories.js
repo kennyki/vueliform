@@ -1,12 +1,12 @@
 import { action } from '@storybook/addon-actions'
-import { withKnobs, object, text, boolean } from '@storybook/addon-knobs'
+import { object, text, boolean } from '@storybook/addon-knobs'
 import { withPadding } from './utils'
 import Vueliform from '../src/components/Vueliform'
 
 export default {
   title: 'Form',
   excludeStories: /.*Data$/,
-  decorators: [withPadding, withKnobs]
+  decorators: [withPadding]
 }
 
 export const actionsData = {
