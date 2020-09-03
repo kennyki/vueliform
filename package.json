@@ -2,6 +2,10 @@
   "name": "vueliform",
   "description": "A JSON schema form based on BootstrapVue and Vuelidate",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kennyki/vueliform.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
