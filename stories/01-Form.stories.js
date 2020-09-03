@@ -19,10 +19,10 @@ export const Header = () => ({
   template: '<Vueliform :title="title" :description="description" :schema="schema" @submit="onSubmit" @change="onChange"/>',
   props: {
     title: {
-      default: () => text('title', 'Best Pizza Restaurant')
+      default: () => text('title', 'This is the form title')
     },
     description: {
-      default: () => text('description', 'Customize according to your taste')
+      default: () => text('description', 'Add a description if you like')
     },
     schema: {
       default: () => [
