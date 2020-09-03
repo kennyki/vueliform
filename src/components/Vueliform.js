@@ -468,6 +468,7 @@ export default {
       const {
         label,
         description,
+        children,
         if: condition,
         type,
         validations,
