@@ -1,14 +1,18 @@
 {
   "name": "vueliform",
   "description": "A JSON schema form based on BootstrapVue and Vuelidate",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "files": [
+    "dist",
+    "src"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/kennyki/vueliform.git"
   },
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name vueliform src/index.js",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -p 6006",
