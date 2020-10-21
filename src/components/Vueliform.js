@@ -204,7 +204,7 @@ export default {
       })
     },
     renderField (h, field) {
-      const { label = '', type } = field
+      const { type } = field
       let component = null
 
       if (type === 'divider') {
@@ -256,7 +256,6 @@ export default {
     renderFormGroup (h, field) {
       const {
         description = '',
-        label = '',
         name,
         type,
         value
@@ -340,7 +339,7 @@ export default {
       return children
     },
     renderFormCheckbox (h, field) {
-      const { options, value } = field
+      const { options } = field
       const data = this.getComponentData({
         field,
         vModelProp: 'checked',
@@ -375,7 +374,7 @@ export default {
       return h(this.useComponents.input, data)
     },
     renderFormRadio (h, field) {
-      const { options, value } = field
+      const { options } = field
       const data = this.getComponentData({
         field,
         vModelProp: 'checked',
@@ -465,6 +464,7 @@ export default {
     getComponentData ({ field, vModelProp, vModelEvent }) {
       // omit props specific to b-form-group/vueliform
       // and pass everything else (to support all props per component)
+      /* eslint-disable no-unused-vars */
       const {
         label,
         description,
@@ -475,6 +475,7 @@ export default {
         validationFeedbacks,
         ...props
       } = field
+      /* eslint-enable no-unused-vars */
       const { name } = props
 
       props[vModelProp] = this.updates[name]
@@ -510,7 +511,9 @@ export default {
             // TODO: should we use a library for this?
             // TODO: support custom sigil (instead of just $)
             params.forEach((param, i) => {
+              /* eslint-disable no-useless-escape */
               message = message.replace(new RegExp('\\\$\\\{' + i + '\\\}', 'g'), param)
+              /* eslint-enable no-useless-escape */
             })
           }
 
