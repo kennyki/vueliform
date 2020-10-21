@@ -1,11 +1,13 @@
 {
   "name": "vueliform",
   "description": "A JSON schema form based on BootstrapVue and Vuelidate",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "files": [
     "dist",
     "src"
   ],
+  "main": "dist/vueliform.common.js",
+  "module": "dist/vueliform.umd.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/kennyki/vueliform.git"
