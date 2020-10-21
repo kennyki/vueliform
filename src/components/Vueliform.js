@@ -530,8 +530,15 @@ export default {
         const value = this.updates[condition]
 
         pass = !!(Array.isArray(value) ? value.length : value)
+      } else if (Array.isArray(condition)) {
+        // TODO: support more operators
+        // TODO: add story
+        const [targetName, operator, compareValue] = condition
+
+        if (operator === '==') {
+          pass = compareValue === this.updates[targetName]
+        }
       }
-      // TODO: support "if" with operators
 
       if (!pass && resetValue) {
         // clear existing value if there is any
