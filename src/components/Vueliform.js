@@ -536,11 +536,11 @@ export default {
         const [targetName, operator, compareValue] = condition
 
         if (operator === '==') {
-          pass = compareValue === this.updates[targetName]
+          pass = this.updates[targetName] === compareValue
         } else if (operator === '>') {
-          pass = compareValue > this.updates[targetName]
+          pass = this.updates[targetName] > compareValue
         } else if (operator === '<') {
-          pass = compareValue < this.updates[targetName]
+          pass = this.updates[targetName] < compareValue
         }
       }
 
