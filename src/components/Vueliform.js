@@ -537,6 +537,10 @@ export default {
 
         if (operator === '==') {
           pass = compareValue === this.updates[targetName]
+        } else if (operator === '>') {
+          pass = compareValue > this.updates[targetName]
+        } else if (operator === '<') {
+          pass = compareValue < this.updates[targetName]
         }
       }
 
