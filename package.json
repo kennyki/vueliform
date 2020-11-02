@@ -18,7 +18,8 @@
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "release": "npm run build && npm publish"
   },
   "peerDependencies": {
     "bootstrap-vue": "^2.16.0",
