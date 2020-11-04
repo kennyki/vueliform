@@ -1,7 +1,7 @@
 {
   "name": "vueliform",
   "description": "A JSON schema form based on BootstrapVue and Vuelidate",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "files": [
     "dist",
     "src"

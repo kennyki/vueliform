@@ -526,13 +526,16 @@ export default {
     checkIfPass (field, resetValue = true, condition = field.if) {
       let pass = true
 
-      if (typeof condition === 'string') {
+      // TODO: support more operators
+      // TODO: add stories
+      if (typeof condition === 'function') {
+        // pass in a clone of updates so it's immutable
+        pass = !!condition({ ...this.updates })
+      } else if (typeof condition === 'string') {
         const value = this.updates[condition]
 
         pass = !!(Array.isArray(value) ? value.length : value)
       } else if (Array.isArray(condition)) {
-        // TODO: support more operators
-        // TODO: add story
         const [targetName, operator, compareValue] = condition
 
         if (operator === '==') {
